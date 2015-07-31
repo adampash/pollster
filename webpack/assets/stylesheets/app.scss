@@ -13,16 +13,36 @@ body {
   @include font-smoothing;
 }
 
-h3.poll_header {
+h3.interactive {
   text-transform: uppercase;
   padding-bottom: 8px;
   font-family: ProximaNovaCond;
-  font-size: 14px;
-  letter-spacing: 0.7px;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  color: #222;
+  margin-bottom: 0;
   // font-weight: normal;
-  border-bottom: 1px solid $blue;
+  // color: $blue;
+}
+
+h3.poll_header {
+  // text-transform: uppercase;
+  // padding-bottom: 8px;
+  // font-family: ProximaNovaCond;
+  // font-size: 14px;
+  // letter-spacing: 0.7px;
+  // // font-weight: normal;
+  // border-bottom: 1px solid $blue;
+  // color: $blue;
+  // text-align: center;
+  border-top: 1px solid $blue;
   color: $blue;
-  text-align: center;
+  font-family: ProximaNovaCond;
+  font-weight: bold;
+  font-size: 30px;
+  padding-top: 10px;
+  margin-bottom: 15px;
+  margin-top: 0;
 }
 
 .poll {
@@ -30,13 +50,28 @@ h3.poll_header {
     font-weight: normal;
     font-family: Georgia;
     text-align: left;
-    font-size: 27px;
-    line-height: 39px;
+    font-size: 20px;
+    line-height: 30px;
     color: #222;
-    margin-bottom: 55px;
+    margin-bottom: 40px;
+    margin-top: 15px;
   }
   .quiet {
     color: #808080;
+  }
+  .vote {
+    width: 100%;
+    height: 70px;
+    border: 1px solid $blue;
+    color: $blue;
+    font-family: ProximaNovaCond;
+    background: white;
+    cursor: pointer;
+    font-size: 20px;
+    &:hover {
+      background: $blue;
+      color: white;
+    }
   }
 }
 
@@ -46,6 +81,7 @@ h3.poll_header {
   flex-direction: row;
   // justify-content: space-between;
   height: auto;
+  margin-bottom: 30px;
 }
 .option {
   font-family: ProximaNovaCond;

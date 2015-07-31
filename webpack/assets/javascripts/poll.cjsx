@@ -67,6 +67,7 @@ module.exports = React.createClass
     options = @state.options?.map (option, index) ->
       <Option text={option.text} key={option.id} id={option.id} />
     <div className="poll">
+      <h3 className="interactive">Interactive</h3>
       <h3 className="poll_header">{@state.title}</h3>
       <p>
         The Deadspin Preseason 25 will comprise the 25 teams that receive the most votes from you, our idiot readers. You are free to select as few or as many teams as you want—ballots can be cast with votes for one team or for 128. 
@@ -75,6 +76,6 @@ module.exports = React.createClass
       <div className="options">
         {options}
       </div>
-      <button onClick={@vote}>Vote</button>
+      <button className="vote" onClick={@vote}>Vote</button>
     </div>
 
