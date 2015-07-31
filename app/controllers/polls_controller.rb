@@ -1,5 +1,7 @@
 class PollsController < ApplicationController
   protect_from_forgery except: [:show]
+  after_action :allow_iframe
+
   def index
   end
 
@@ -15,5 +17,11 @@ class PollsController < ApplicationController
   end
 
   def new
+  end
+
+
+  private
+  def allow_iframe
+    response.headers.except! 'X-Frame-Options'
   end
 end
