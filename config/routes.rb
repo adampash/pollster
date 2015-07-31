@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :polls
+
   get 'hello' => 'pages#hello'
   get 'pages/json' => 'pages#json'
   # The priority is based upon order of creation: first created -> highest priority.

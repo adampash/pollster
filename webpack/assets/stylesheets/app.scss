@@ -1,10 +1,75 @@
 @import 'fonts';
+@import 'base';
+@import 'font_smoothing';
+
+
+$light_blue: #f4f4f4;
+$blue: #2D9D92;
+$dark_blue: #1E6558;
 
 body {
   max-width: 800px;
+  padding: 0;
+  @include font-smoothing;
 }
-h2 {
-  font-size: $size;
-  font-family: $font;
-  color: green;
+
+h3.poll_header {
+  text-transform: uppercase;
+  padding-bottom: 8px;
+  font-family: ProximaNovaCond;
+  font-size: 14px;
+  letter-spacing: 0.7px;
+  // font-weight: normal;
+  border-bottom: 1px solid $blue;
+  color: $blue;
+  text-align: center;
+}
+
+.poll {
+  p {
+    font-weight: normal;
+    font-family: Georgia;
+    text-align: left;
+    font-size: 27px;
+    line-height: 39px;
+    color: #222;
+    margin-bottom: 55px;
+  }
+  .quiet {
+    color: #808080;
+  }
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  // justify-content: space-between;
+  height: auto;
+}
+.option {
+  font-family: ProximaNovaCond;
+  font-size: 16px;
+  color: #808080;
+  cursor: pointer;
+  // flex: 1 0;
+  width: 150px;
+  height: 35px;
+  margin: 6px;
+  padding: 10px 0;
+  text-align: center;
+  background: $light_blue;
+  &:hover {
+    color: #222;
+  }
+}
+
+.selected {
+  // @include font-smoothing(none);
+  font-weight: bold;
+  color: white;
+  background: $blue;
+  &:hover {
+    color: white;
+  }
 }

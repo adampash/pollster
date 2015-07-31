@@ -1,0 +1,16 @@
+@import 'font_smoothing';
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  // overflow: hidden;
+}
+
+body {
+  // overflow: auto;
+  // @include font-smoothing;
+}
