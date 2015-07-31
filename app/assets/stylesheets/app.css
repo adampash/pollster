@@ -42,6 +42,7 @@
 body {
   max-width: 800px;
   padding: 0;
+  margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
@@ -52,7 +53,8 @@ h3.interactive {
   font-size: 12px;
   letter-spacing: 1.2px;
   color: #222;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  margin-top: 20px; }
 
 h3.poll_header {
   border-top: 1px solid #2D9D92;
@@ -71,7 +73,7 @@ h3.poll_header {
   font-size: 20px;
   line-height: 30px;
   color: #222;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   margin-top: 15px; }
 .poll .quiet {
   color: #808080; }
@@ -92,17 +94,18 @@ h3.poll_header {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  justify-content: space-between;
   height: auto;
-  margin-bottom: 30px; }
+  margin-bottom: 0px; }
 
 .option {
   font-family: ProximaNovaCond;
   font-size: 16px;
   color: #808080;
   cursor: pointer;
-  width: 150px;
+  width: 23.5%;
+  margin-bottom: 12px;
   height: 35px;
-  margin: 6px;
   padding: 10px 0;
   text-align: center;
   background: #f4f4f4; }
@@ -115,3 +118,28 @@ h3.poll_header {
   background: #2D9D92; }
   .selected:hover {
     color: white; }
+
+@media (max-width: 480px) {
+  .option {
+    width: 48%; }
+
+  h3.poll_header {
+    line-height: 32px; }
+
+  .poll p {
+    line-height: 27px; }
+
+  .social a {
+    margin-right: 0;
+    margin-left: 10px; }
+  .social .start-over a {
+    margin-top: 10px;
+    margin-left: 0; }
+  .social .button svg {
+    width: 40px; }
+
+  .punishment_header {
+    margin-top: -31px; }
+
+  .conclusion {
+    margin-top: 31px; } }

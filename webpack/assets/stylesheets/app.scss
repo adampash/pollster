@@ -10,6 +10,7 @@ $dark_blue: #1E6558;
 body {
   max-width: 800px;
   padding: 0;
+  margin: 0;
   @include font-smoothing;
 }
 
@@ -21,6 +22,7 @@ h3.interactive {
   letter-spacing: 1.2px;
   color: #222;
   margin-bottom: 0;
+  margin-top: 20px;
   // font-weight: normal;
   // color: $blue;
 }
@@ -44,7 +46,7 @@ h3.poll_header {
     font-size: 20px;
     line-height: 30px;
     color: #222;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     margin-top: 15px;
   }
   .quiet {
@@ -70,9 +72,9 @@ h3.poll_header {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  // justify-content: space-between;
+  justify-content: space-between;
   height: auto;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
 }
 .option {
   font-family: ProximaNovaCond;
@@ -80,9 +82,12 @@ h3.poll_header {
   color: #808080;
   cursor: pointer;
   // flex: 1 0;
-  width: 150px;
+  // width: 150px;
+  width: 23.5%;
+  // margin-right: 2%;
+  margin-bottom: 12px;
   height: 35px;
-  margin: 6px;
+  // margin: 6px;
   padding: 10px 0;
   text-align: center;
   background: $light_blue;
@@ -98,5 +103,39 @@ h3.poll_header {
   background: $blue;
   &:hover {
     color: white;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .option {
+    width: 48%;
+  }
+  h3.poll_header {
+    line-height: 32px;
+  }
+  .poll {
+    p {
+      line-height: 27px;
+    }
+  }
+  .social {
+    a {
+      margin-right: 0;
+      margin-left: 10px;
+    }
+    .start-over a {
+      margin-top: 10px;
+      margin-left: 0;
+    }
+    .button svg {
+      width: 40px;
+    }
+  }
+  .punishment_header {
+    margin-top: -31px
+  }
+  .conclusion {
+    margin-top: 31px;
   }
 }
