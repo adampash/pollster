@@ -1,0 +1,10 @@
+@import 'fonts';
+
+body {
+  max-width: 800px;
+}
+h2 {
+  font-size: $size;
+  font-family: $font;
+  color: green;
+}
