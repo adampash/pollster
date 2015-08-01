@@ -1,4 +1,4 @@
-cd webpack && $(npm bin)/webpack --config webpack.rails.config.js;
+cd webpack && $(npm bin)/webpack -p --config webpack.rails.config.js;
 cd ..;
 git add . && git commit -m "deploy"
 git push && git push heroku;
