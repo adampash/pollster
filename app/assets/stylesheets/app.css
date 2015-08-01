@@ -149,7 +149,7 @@ h3.poll_header {
     border: 1px solid white;
     cursor: initial; }
     .poll .vote.voted:after {
-      content: "Thanks for voting!"; }
+      content: "You're votes have been counted."; }
     .poll .vote.voted:hover {
       background: white;
       color: #2D9D92; }

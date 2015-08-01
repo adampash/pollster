@@ -79,7 +79,7 @@ h3.poll_header {
       border: 1px solid white;
       cursor: initial;
       &:after {
-        content: "Thanks for voting!";
+        content: "You're votes have been counted.";
       }
       &:hover {
         background: white;
