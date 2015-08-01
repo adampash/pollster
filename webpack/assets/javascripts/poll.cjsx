@@ -1,4 +1,5 @@
 React = require 'react'
+Tappable = require 'react-tappable'
 fetch = require 'fetch'
 _ = require 'underscore'
 classnames = require 'classnames'
@@ -92,14 +93,16 @@ module.exports = React.createClass
         remove={@remove}
         voted={@state.voted}
       />
-    button = <button
-              className={classnames(
-                "vote",
-                loading: @state.loading,
-                voted: @state.voted
-              )}
-              disabled={@state.loading or @state.voted}
-              onClick={@vote} />
+    button = <Tappable onTap={@vote}>
+              <button
+                className={classnames(
+                  "vote",
+                  loading: @state.loading,
+                  voted: @state.voted
+                )}
+                disabled={@state.loading or @state.voted}
+                />
+             </Tappable>
 
 
     <div className="poll">
