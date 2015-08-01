@@ -68,6 +68,29 @@ a {
   color: black;
   text-decoration: none; }
 
+.new_poll {
+  max-width: 800px;
+  width: 100%; }
+  .new_poll .group {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: flex-end;
+    margin: 10px; }
+    .new_poll .group label {
+      flex: 0 0 130px;
+      text-align: right;
+      padding-top: 10px; }
+    .new_poll .group input, .new_poll .group textarea {
+      flex: 1 1 auto;
+      padding: 10px;
+      margin: 0;
+      margin-left: 10px; }
+    .new_poll .group textarea {
+      min-height: 200px; }
+    .new_poll .group button {
+      align-self: flex-end; }
+
 body {
   max-width: 800px;
   padding: 0;

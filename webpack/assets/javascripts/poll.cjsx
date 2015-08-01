@@ -9,6 +9,8 @@ module.exports = React.createClass
   getInitialState: ->
     options: _.shuffle @props.data?.options
     title: @props.data?.title
+    description: @props.data?.description
+    end_message: @props.data?.end_message
     id: @props.params.id
     chosen: []
     voted: false
@@ -36,6 +38,8 @@ module.exports = React.createClass
         @setState
           id: json.id
           title: json.title
+          description: json.description
+          end_message: json.end_message
           options: _.shuffle json.options
 
   add: (option_id) ->
@@ -102,8 +106,8 @@ module.exports = React.createClass
       <h3 className="interactive">Interactive</h3>
       <h3 className="poll_header">{@state.title}</h3>
       <p>
-        The Deadspin Preseason 25 will comprise the 25 teams that receive the most votes from you, our idiot readers. You are free to select as few or as many teams as you want—ballots can be cast with votes for one team or for 128. 
-        <span className="quiet">(Voting ends Aug. 10.)</span>
+        {@state.description}
+        <span className="quiet"> ({@state.end_message})</span>
       </p>
       <div className="options">
         {options}

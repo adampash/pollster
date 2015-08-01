@@ -1,0 +1,28 @@
+.new_poll {
+  max-width: 800px;
+  width: 100%;
+  .group {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: flex-end;
+    margin: 10px;
+    label {
+      flex: 0 0 130px;
+      text-align: right;
+      padding-top: 10px;
+    }
+    input, textarea {
+      flex: 1 1 auto;
+      padding: 10px;
+      margin: 0;
+      margin-left: 10px;
+    }
+    textarea {
+      min-height: 200px;
+    }
+    button {
+      align-self: flex-end;
+    }
+  }
+}

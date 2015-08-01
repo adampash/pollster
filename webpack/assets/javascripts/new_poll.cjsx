@@ -15,8 +15,9 @@ module.exports = React.createClass
       csrf_token: csrf_token
 
   handleChange: (e) ->
-    @setState
-      title: e.target.value
+    obj = {}
+    obj[e.target.name] = e.target.value
+    @setState obj
 
   handleOptionsChange: (e) ->
     @setState
@@ -26,6 +27,8 @@ module.exports = React.createClass
     e.preventDefault()
     params =
       title: @state.title
+      description: @state.description
+      end_message: @state.end_message
       options: @state.options
       mass: true
       authenticity_token: @state.csrf_token
@@ -45,10 +48,25 @@ module.exports = React.createClass
 
   render: ->
     <div>
-      <form>
-        <label>Title</label>
-        <input type="text" onChange={@handleChange} value={@state.title} />
-        <textarea onChange={@handleOptionsChange} value={@state.options} />
-        <button onClick={@save}>Create</button>
+      <form className="new_poll">
+        <div className="group">
+          <label>Title:</label>
+          <input type="text" className="title" name="title" onChange={@handleChange} value={@state.title} />
+        </div>
+        <div className="group">
+          <label>Description:</label>
+          <input type="text" className="description" name="description" onChange={@handleChange} value={@state.description} />
+        </div>
+        <div className="group">
+          <label>End message:</label>
+          <input type="text" className="end_message" name="end_message" onChange={@handleChange} value={@state.end_message} placeholder="E.g., Voting ends Aug. 10." />
+        </div>
+        <div className="group">
+          <label>Options (one per line):</label>
+          <textarea onChange={@handleOptionsChange} value={@state.options} />
+        </div>
+        <div className="group">
+          <button onClick={@save}>Create</button>
+        </div>
       </form>
     </div>

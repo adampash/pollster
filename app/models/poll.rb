@@ -6,6 +6,8 @@ class Poll < ActiveRecord::Base
   def self.create_with_mass_options(options, user_id)
     poll = create(
       title: options[:title],
+      description: options[:description],
+      end_message: options[:end_message],
       live: true,
       vote_count: 0,
       user_id: user_id,
