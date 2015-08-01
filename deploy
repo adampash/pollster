@@ -1,4 +1,6 @@
+message=$1;
+echo $message;
 cd webpack && $(npm bin)/webpack -p --config webpack.rails.config.js;
 cd ..;
-git add . && git commit -m "deploy"
-git push && git push heroku;
+git add . && git commit -m "$message"
+# git push && git push heroku;

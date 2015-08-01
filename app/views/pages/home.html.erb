@@ -3,8 +3,8 @@
   window.data["logged_in"] = <%= user_signed_in? %>;
   <% if user_signed_in? %>
     window.data["user"] = {
-      name: <%= current_user.name %>,
-      avatar: <%= current_user.avatar %>,
+      name: "<%= current_user.name %>",
+      avatar: "<%= current_user.avatar %>",
     };
   <% else %>
     window.data["login_path"] = "<%= user_omniauth_authorize_path(provider: :google_oauth2) %>";
