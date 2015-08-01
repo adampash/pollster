@@ -19,7 +19,7 @@ App = React.createClass
     window.removeEventListener 'resize', @resize
 
   resize: ->
-    height = $('body').height() + 10
+    height = $('body').height() + 30
     window.top.postMessage(
       JSON.stringify(
         kinja:
