@@ -86,6 +86,7 @@ module.exports = React.createClass
       <Option text={option.text} key={option.id} id={option.id}
         add={@add}
         remove={@remove}
+        voted={@state.voted}
       />
     button = <button
               className={classnames(

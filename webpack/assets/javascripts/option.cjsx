@@ -7,6 +7,8 @@ module.exports = React.createClass
     selected: false
 
   handleClick: (e) ->
+    if @props.voted
+      return alert "Hey, you already voted! Why are you still clicking on things?"
     newSelect = !@state.selected
     @setState
       selected: newSelect
