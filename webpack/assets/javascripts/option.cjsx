@@ -10,8 +10,10 @@ module.exports = React.createClass
     newSelect = !@state.selected
     @setState
       selected: newSelect
-    # if newSelect
-    #   @props.remove(@props.id)
+    if newSelect
+      @props.add(@props.id)
+    else
+      @props.remove(@props.id)
 
   render: ->
     <Tappable className={classnames('option', selected: @state.selected)} onTap={@handleClick}>

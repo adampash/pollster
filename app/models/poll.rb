@@ -1,6 +1,6 @@
 class Poll < ActiveRecord::Base
-
   has_many :options
+  has_many :votes
   belongs_to :user
 
   def self.create_with_mass_options(options)

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :polls
+  get 'votes/create'
+
+  resources :polls do
+    resources :votes
+  end
 
   get 'hello' => 'pages#hello'
   get 'pages/json' => 'pages#json'

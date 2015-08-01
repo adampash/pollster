@@ -1,6 +1,7 @@
 React = require 'react'
 fetch = require 'fetch'
 _ = require 'underscore'
+classnames = require 'classnames'
 
 Option = require 'option'
 
@@ -9,6 +10,9 @@ module.exports = React.createClass
     options: _.shuffle @props.data.options
     title: @props.data.title
     id: @props.data.id
+    chosen: []
+    voted: false
+    loading: false
 
   componentDidMount: ->
     unless @state.options.length
@@ -33,39 +37,65 @@ module.exports = React.createClass
           title: json.title
           options: _.shuffle json.options
 
-
-  handleChange: (e) ->
+  add: (option_id) ->
+    chosen = @state.chosen
+    chosen.push(option_id)
     @setState
-      title: e.target.value
+      chosen: chosen
 
-  handleOptionsChange: (e) ->
+  remove: (option_id) ->
     @setState
-      options: e.target.value
+      chosen: _.without(@state.chosen, option_id)
 
   vote: (e) ->
     e.preventDefault()
+    return if @state.voted or @state.loading
+    unless @state.chosen.length > 0
+      alert("Choose some teams, dummy!")
+      return
     params =
-      options: @state.options
+      chosen: @state.chosen
       authenticity_token: @state.csrf_token
-    # fetch('/polls/', {
-    #   method: 'post'
-    #   body: JSON.stringify params
-    #   headers: {
-    #     'Accept': 'application/json'
-    #     'Content-Type': 'application/json'
-    #   }
-    #   credentials: 'same-origin'
-    # })
-    #   .then (response) =>
-    #     response.json()
-    #   .then (json) =>
-    #     debugger
-    #     @setState
-    #       name: json.name
+    @setState
+      loading: true
+    fetch("/polls/#{@state.id}/votes", {
+      method: 'post'
+      body: JSON.stringify params
+      headers: {
+        'Accept': 'application/json'
+        'Content-Type': 'application/json'
+      }
+      credentials: 'same-origin'
+    })
+      .then (response) =>
+        response.json()
+      .then (json) =>
+        # debugger
+        @setState
+          voted: true
+          loading: false
+      .catch (e) =>
+        alert 'something went wrong'
+        @setState
+          loading: false
 
   render: ->
-    options = @state.options?.map (option, index) ->
-      <Option text={option.text} key={option.id} id={option.id} />
+    console.log @state.chosen
+    options = @state.options?.map (option, index) =>
+      <Option text={option.text} key={option.id} id={option.id}
+        add={@add}
+        remove={@remove}
+      />
+    button = <button
+              className={classnames(
+                "vote",
+                loading: @state.loading,
+                voted: @state.voted
+              )}
+              disabled={@state.loading or @state.voted}
+              onClick={@vote} />
+
+
     <div className="poll">
       <h3 className="interactive">Interactive</h3>
       <h3 className="poll_header">{@state.title}</h3>
@@ -76,6 +106,6 @@ module.exports = React.createClass
       <div className="options">
         {options}
       </div>
-      <button className="vote" onClick={@vote}>Vote</button>
+      {button}
     </div>
 

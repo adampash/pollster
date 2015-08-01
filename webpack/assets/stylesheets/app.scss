@@ -65,6 +65,26 @@ h3.poll_header {
       background: $blue;
       color: white;
     }
+    &:after {
+      content: "Vote"
+    }
+    &.loading {
+      // font-style: italic;
+      &:after {
+        content: "Voting..."
+      }
+    }
+    &.voted {
+      border: 1px solid white;
+      cursor: initial;
+      &:after {
+        content: "Thanks for voting!";
+      }
+      &:hover {
+        background: white;
+        color: $blue;
+      }
+    }
   }
 }
 
