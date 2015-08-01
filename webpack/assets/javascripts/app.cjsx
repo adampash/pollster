@@ -7,6 +7,7 @@ RouteHandler = Router.RouteHandler
 NewPoll = require 'new_poll'
 Poll = require 'poll'
 Login = require 'login'
+$ = require 'jquery'
 
 
 App = React.createClass
