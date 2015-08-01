@@ -26,7 +26,6 @@ module.exports = React.createClass
       csrf_token: csrf_token
 
   getOptions: ->
-    console.log 'fetching options'
     fetch("/polls/#{@props.params.id}",
       headers: {
         'Accept': 'application/json'
@@ -86,7 +85,6 @@ module.exports = React.createClass
           loading: false
 
   render: ->
-    console.log @state.chosen
     options = @state.options?.map (option, index) =>
       <Option text={option.text} key={option.id} id={option.id}
         add={@add}

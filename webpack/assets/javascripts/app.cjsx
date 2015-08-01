@@ -49,36 +49,3 @@ Router.run routes, Router.HistoryLocation, (Handler, state) ->
   params = state.params
   data = window.data
   React.render <Handler params={params} data={data} />, document.body
-
-# Foo = require 'foo'
-# 
-# # using github's fetch browser shim
-# fetch = require 'fetch'
-# 
-# HelloWorld = React.createClass
-#   getInitialState: ->
-#     name: @props.name
-#   handleHover: ->
-#     fetch('/pages/json.json')
-#       .then (response) =>
-#         response.json()
-#       .then (json) =>
-#         @setState
-#           name: json.name
-#       .catch (e) =>
-#         console.log 'error'
-#   #     debugger
-#   render: ->
-#     <div onMouseOver={@handleHover}>
-#       <h2>
-#         Hello {@state.name}
-#       </h2>
-#       <Foo name={@state.name} />
-#     </div>
-# 
-# React.render(
-#   <HelloWorld name="You" />,
-#   document.body
-# )
-# 
-# module.exports = HelloWorld
