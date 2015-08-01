@@ -10,6 +10,24 @@ Login = require 'login'
 
 
 App = React.createClass
+  componentDidMount: ->
+    window.addEventListener 'resize', @resize
+    @resize()
+
+  componentWillUnmount: ->
+    window.removeEventListener 'resize', @resize
+
+  resize: ->
+    height = $('body').height() + 10
+    window.top.postMessage(
+      JSON.stringify(
+        kinja:
+          sourceUrl: window.location.href
+          resizeFrame:
+            height: height
+      ), '*'
+    )
+
   render: ->
     if @props.logged_in
       login = <div />
