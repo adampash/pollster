@@ -1,0 +1,3 @@
+cd webpack && $(npm bin)/webpack -w --config webpack.rails.config.js;
+cd ..;
+g push heroku;
