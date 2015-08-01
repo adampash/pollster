@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'votes/create'
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
 
   resources :polls do
     resources :votes
@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 
   get 'hello' => 'pages#hello'
   get 'pages/json' => 'pages#json'
+
+  get 'login' => 'pages#home'
+  root 'pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

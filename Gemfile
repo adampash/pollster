@@ -30,6 +30,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Puma as the app server
 gem 'puma'
 
+gem 'devise'
+gem 'omniauth-google-oauth2'
+
 # production debugging stuff
 gem 'rollbar', '~> 1.2.7'
 gem 'newrelic_rpm'
@@ -41,6 +44,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'pry'
+  gem 'dotenv'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'

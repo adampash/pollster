@@ -1,6 +1,8 @@
 class PollsController < ApplicationController
   protect_from_forgery except: [:show]
-  after_action :allow_iframe
+  before_action :authenticate_user!, only: [:create, :new]
+
+  after_action :allow_iframe, only: [:show]
 
   def index
   end
@@ -11,7 +13,7 @@ class PollsController < ApplicationController
 
   def create
     if params[:mass]
-      @poll = Poll.create_with_mass_options(params)
+      @poll = Poll.create_with_mass_options(params, current_user.id)
     end
     render json: @poll.to_json
   end

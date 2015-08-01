@@ -1,0 +1,22 @@
+<script>
+  window.data = window.data || {};
+  window.data["logged_in"] = <%= user_signed_in? %>;
+  <% if user_signed_in? %>
+    window.data["user"] = {
+      name: <%= current_user.name %>,
+      avatar: <%= current_user.avatar %>,
+    };
+  <% else %>
+    window.data["login_path"] = "<%= user_omniauth_authorize_path(provider: :google_oauth2) %>";
+  <% end %>
+</script>
+<%# <% if user_signed_in? %>
+<%#   <%= current_user.name %>
+<%#   <%= image_tag current_user.avatar %>
+<%#   <%= link_to "Logout", user_logout_path %>
+<%# <% else %>
+<%#   <%= link_to "Log in", user_omniauth_authorize_path(provider: :google_oauth2), class: :login %>
+<%#   <div class="login_message">
+<%#     Log in will redirect to your Google sign in. Please sign in only with your Gawker email address.
+<%#   </div>
+<%# <% end %>

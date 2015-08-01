@@ -7,9 +7,9 @@ Option = require 'option'
 
 module.exports = React.createClass
   getInitialState: ->
-    options: _.shuffle @props.data.options
-    title: @props.data.title
-    id: @props.data.id
+    options: _.shuffle @props.data?.options
+    title: @props.data?.title
+    id: @props.params.id
     chosen: []
     voted: false
     loading: false
@@ -23,6 +23,7 @@ module.exports = React.createClass
       csrf_token: csrf_token
 
   getOptions: ->
+    console.log 'fetching options'
     fetch("/polls/#{@props.params.id}",
       headers: {
         'Accept': 'application/json'

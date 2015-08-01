@@ -1,7 +1,10 @@
 React = require 'react'
+Router = require('react-router')
 fetch = require 'fetch'
 
 module.exports = React.createClass
+  mixins: [Router.Navigation]
+
   getInitialState: ->
     title: ''
 
@@ -38,9 +41,7 @@ module.exports = React.createClass
       .then (response) =>
         response.json()
       .then (json) =>
-        debugger
-        @setState
-          name: json.name
+        @transitionTo('show', {id: json.id, data: json})
 
   render: ->
     <div>
