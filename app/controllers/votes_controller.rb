@@ -1,7 +1,8 @@
 class VotesController < ApplicationController
   def create
     # allow 10 votes max via cookies
-    if ten_votes?(params[:poll_id]) && false
+    if ten_votes?(params[:poll_id])
+      puts "Not counting these votes"
       render json: {success: true}
     else
       @ballot = Ballot.create(ip_address: request.remote_ip, poll_id: params[:poll_id])
