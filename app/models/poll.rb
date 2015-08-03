@@ -16,4 +16,12 @@ class Poll < ActiveRecord::Base
     poll.save
     poll
   end
+
+  def tally_results
+    results = ""
+    options.each do |option|
+      results += "#{option.text}: #{option.votes.count}"
+    end
+    puts results
+  end
 end

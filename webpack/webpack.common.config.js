@@ -4,7 +4,7 @@ const path = require('path');
 
 module.exports = {
   // turn to false if not on home network
-  home: true,
+  home: false,
 
   // the project dir
   context: __dirname,
