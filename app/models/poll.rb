@@ -20,7 +20,7 @@ class Poll < ActiveRecord::Base
   def tally_results
     results = ""
     options.each do |option|
-      results += "#{option.text}: #{option.votes.count}"
+      results += "#{option.text}: #{option.votes.count}\n"
     end
     puts results
   end
