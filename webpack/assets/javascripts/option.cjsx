@@ -18,6 +18,10 @@ module.exports = React.createClass
       @props.remove(@props.id)
 
   render: ->
-    <Tappable className={classnames('option', selected: @state.selected)} onTap={@handleClick}>
+    <Tappable
+      className={classnames('option', selected: @state.selected)}
+      onTap={@handleClick}
+      moveThreshold={10}
+    >
       {@props.text}
     </Tappable>
