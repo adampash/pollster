@@ -95,6 +95,7 @@ h3.poll_header {
   flex-direction: row;
   justify-content: space-between;
   height: auto;
+  width: 100%;
   margin-bottom: 0px;
 }
 .option {
@@ -111,7 +112,7 @@ h3.poll_header {
   // margin: 6px;
   padding: 10px 0;
   text-align: center;
-  background: $light_blue;
+  background: #f2f2f2;
   &:hover {
     color: #222;
   }

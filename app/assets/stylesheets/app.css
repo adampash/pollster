@@ -160,6 +160,7 @@ h3.poll_header {
   flex-direction: row;
   justify-content: space-between;
   height: auto;
+  width: 100%;
   margin-bottom: 0px; }
 
 .option {
@@ -172,7 +173,7 @@ h3.poll_header {
   height: 35px;
   padding: 10px 0;
   text-align: center;
-  background: #f4f4f4; }
+  background: #f2f2f2; }
   .option:hover {
     color: #222; }
 

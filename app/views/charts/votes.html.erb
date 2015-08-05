@@ -1,0 +1,2 @@
+<%= line_chart Vote.group_by_day(:created_at).count, time_zone: "Eastern Time (US & Canada)" %>
+<%= line_chart Ballot.group_by_day(:created_at).count, time_zone: "Eastern Time (US & Canada)" %>

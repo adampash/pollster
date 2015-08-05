@@ -33,6 +33,12 @@ gem 'puma'
 gem 'devise'
 gem 'omniauth-google-oauth2'
 
+# chart business
+gem "chartkick"
+gem 'groupdate'
+gem 'hightop'
+gem 'active_median'
+
 # production debugging stuff
 gem 'rollbar', '~> 1.2.7'
 gem 'newrelic_rpm'

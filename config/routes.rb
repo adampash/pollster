@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get 'hello' => 'pages#hello'
   get 'pages/json' => 'pages#json'
 
+
+  get 'charts/votes' => 'charts#votes'
+
   get 'login' => 'pages#home'
   root 'pages#home'
   # The priority is based upon order of creation: first created -> highest priority.

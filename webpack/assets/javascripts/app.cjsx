@@ -48,4 +48,4 @@ routes =
 Router.run routes, Router.HistoryLocation, (Handler, state) ->
   params = state.params
   data = window.data
-  React.render <Handler params={params} data={data} />, document.body
+  React.render <Handler params={params} data={data} />, $('.content')[0]
