@@ -24,4 +24,12 @@ class Poll < ActiveRecord::Base
     end
     puts results
   end
+
+  def tally_results_to_csv
+    results = "Option,Count\n"
+    options.each do |option|
+      results += "#{option.text},#{option.votes.count}\n"
+    end
+    results
+  end
 end

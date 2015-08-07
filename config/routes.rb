@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :votes
   end
 
+  get 'polls/:id/results' => 'polls#results'
+
   get 'hello' => 'pages#hello'
   get 'pages/json' => 'pages#json'
 

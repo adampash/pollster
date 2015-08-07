@@ -1,6 +1,6 @@
 class PollsController < ApplicationController
   protect_from_forgery except: [:show]
-  before_action :authenticate_user!, only: [:create, :new]
+  before_action :authenticate_user!, only: [:create, :new, :results]
 
   after_action :allow_iframe, only: [:show]
 
@@ -19,6 +19,12 @@ class PollsController < ApplicationController
   end
 
   def new
+  end
+
+  def results
+    @poll = Poll.find params[:id]
+    # render text: @poll.tally_results_to_csv
+    send_data @poll.tally_results_to_csv
   end
 
 
