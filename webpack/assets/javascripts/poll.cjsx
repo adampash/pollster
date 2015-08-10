@@ -10,6 +10,7 @@ module.exports = React.createClass
   getInitialState: ->
     options: _.shuffle @props.data?.options
     title: @props.data?.title
+    live: @props.data.live
     description: @props.data?.description
     end_message: @props.data?.end_message
     id: @props.params.id
@@ -85,34 +86,42 @@ module.exports = React.createClass
           loading: false
 
   render: ->
-    options = @state.options?.map (option, index) =>
-      <Option text={option.text} key={option.id} id={option.id}
-        add={@add}
-        remove={@remove}
-        voted={@state.voted}
-      />
-    button = <Tappable onTap={@vote}>
-              <button
-                className={classnames(
-                  "vote",
-                  loading: @state.loading,
-                  voted: @state.voted
-                )}
-                disabled={@state.loading or @state.voted}
-                />
-             </Tappable>
+    if @state.live
+      options = @state.options?.map (option, index) =>
+        <Option text={option.text} key={option.id} id={option.id}
+          add={@add}
+          remove={@remove}
+          voted={@state.voted}
+        />
+      button = <Tappable onTap={@vote}>
+                <button
+                  className={classnames(
+                    "vote",
+                    loading: @state.loading,
+                    voted: @state.voted
+                  )}
+                  disabled={@state.loading or @state.voted}
+                  />
+               </Tappable>
 
 
     <div className="poll">
       <h3 className="interactive">Interactive</h3>
       <h3 className="poll_header">{@state.title}</h3>
-      <p>
+      <p className={classnames(quiet: !@state.live)}>
         {@state.description}
         <span className="quiet"> ({@state.end_message})</span>
       </p>
-      <div className="options">
-        {options}
-      </div>
-      {button}
+      {@state.live &&
+        <div>
+          <div className="options">
+            {options}
+          </div>
+          {button}
+        </div>
+      }
+      {!@state.live &&
+        <p>This poll is now closed.</p>
+      }
     </div>
 
