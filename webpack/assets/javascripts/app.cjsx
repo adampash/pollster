@@ -8,26 +8,11 @@ NewPoll = require 'new_poll'
 Poll = require 'poll'
 Login = require 'login'
 $ = require 'jquery'
+Resizer = require 'kinja_resizer'
 
 
 App = React.createClass
-  componentDidMount: ->
-    window.addEventListener 'resize', @resize
-    @resize()
-
-  componentWillUnmount: ->
-    window.removeEventListener 'resize', @resize
-
-  resize: ->
-    height = $('body').height() + 30
-    window.top.postMessage(
-      JSON.stringify(
-        kinja:
-          sourceUrl: window.location.href
-          resizeFrame:
-            height: height
-      ), '*'
-    )
+  mixins: [Resizer]
 
   render: ->
     if @props.logged_in
