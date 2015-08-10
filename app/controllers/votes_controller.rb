@@ -5,6 +5,8 @@ class VotesController < ApplicationController
       puts "Not counting these votes"
       render json: {success: true}
     else
+      @poll = Poll.find params[:poll_id]
+      return render json: {success: false} unless @poll.live
       @ballot = Ballot.create(ip_address: request.remote_ip, poll_id: params[:poll_id])
       @votes = Vote.create_all(params, @ballot)
       if @votes
