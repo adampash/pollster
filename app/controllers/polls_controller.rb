@@ -23,7 +23,6 @@ class PollsController < ApplicationController
 
   def results
     @poll = Poll.find params[:id]
-    # render text: @poll.tally_results_to_csv
     send_data @poll.tally_results_to_csv
   end
 
